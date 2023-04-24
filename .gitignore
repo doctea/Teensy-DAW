@@ -1,0 +1,5 @@
+TeensyTouchDAW/.pio/*
+TeensyTouchDAW/.vscode/.browse.c_cpp.db*
+TeensyTouchDAW/.vscode/c_cpp_properties.json
+TeensyTouchDAW/.vscode/launch.json
+TeensyTouchDAW/.vscode/ipch
