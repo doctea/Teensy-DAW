@@ -89,8 +89,8 @@ Head over to Pl31OSC.ino to see how to implement new plugins
 #define TFT_MISO 12  //shareable
 
 //button Pins
-const byte ROWS = 4;  //four rows
-const byte COLS = 4;  //four columns
+const int ROWS = 4;  //four rows
+const int COLS = 4;  //four columns
 //define the cymbols on the buttons of the keypads
 const char keys[ROWS][COLS] = {
   { '0', '1', '2', '3' },
@@ -101,7 +101,7 @@ const char keys[ROWS][COLS] = {
 const byte rowPins[ROWS] = { 37, 36, 35, 34 };  //connect to the row pinouts of the keypad
 const byte colPins[COLS] = { 41, 38, 39, 40 };  //connect to the column pinouts of the keypad
 
-Adafruit_Keypad kpd = Adafruit_Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+Adafruit_Keypad kpd = Adafruit_Keypad(makeKeymap(keys), (byte*)rowPins, (byte*)colPins, (int)ROWS, (int)COLS);
 //Encoder Pins
 Encoder Enc1(31, 32);
 Encoder Enc2(27, 28);
@@ -216,7 +216,7 @@ public:
   void send_MIDIclock() {
     //spit out a MIDItick
     usbMIDI.sendRealTime(usbMIDI.Clock);  //send a midiclock to usb host
-    MIDI.sendRealTime(0xF8);              //send a midiclock to serial midi
+    MIDI.sendRealTime(midi::Clock);              //send a midiclock to serial midi
   }
   void send_sync_clock() {
 
@@ -367,7 +367,7 @@ void setup() {
   //tft.updateScreen();
 
   //allocate tracks2-8 "array"
-  ctrack = calloc(NUM_TRACKS, sizeof(track_t));
+  ctrack = (track_t*)calloc(NUM_TRACKS, sizeof(track_t));
   //allocate tracks
   track = new tracks[NUM_TRACKS];
   //ctrack = new track_t[NUM_TRACKS];
