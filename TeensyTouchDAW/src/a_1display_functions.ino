@@ -8,9 +8,6 @@
 
 #include "b_variables.h"
 
-
-
-
 // These read 16- and 32-bit types from the SD card file.
 // BMP data is stored little-endian, Arduino is little-endian too.
 // May need to reverse subscript order if porting elsewhere.

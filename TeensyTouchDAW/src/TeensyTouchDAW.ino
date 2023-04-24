@@ -75,8 +75,6 @@ Head over to Pl31OSC.ino to see how to implement new plugins
 //#include "AudioSampleP2.h"
 #include "AudioSamplesTest.h"
 
-
-
 //Teensy 4.1 PINOUT
 //Pinout for screen
 #define TIRQ_PIN 15  //alternate Pins: any digital pin
