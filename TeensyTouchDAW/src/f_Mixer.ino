@@ -1,3 +1,9 @@
+#include <Arduino.h>
+
+#include "b_variables.h"
+#include "b_plugin_Audiopath.h"
+#include "display.h"
+
 void selectSolo(int tracknumber) {
 
   if (!track[tracknumber].solo_state) {
